@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍辰｜邀評黃金時機指南</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1a2d42;
+    --blue: #1a5fa8;
+    --blue-bright: #2979d4;
+    --gold: #c9934a;
+    --gold-light: #f0c070;
+    --cream: #f7f2ea;
+    --cream-dark: #ede6d8;
+    --text: #1a1208;
+    --text-mid: #3d3120;
+    --text-soft: #7a6e5e;
+    --white: #ffffff;
+    --green: #1a6b4a;
+    --green-light: #e8f5ed;
+    --teal: #0e6674;
+    --teal-light: #e4f4f7;
+    --purple: #4a3a8a;
+    --purple-light: #eeebf8;
+    --amber: #7a4a0a;
+    --amber-light: #fdf0db;
+    --red-soft: #8a2020;
+    --red-light: #fbeaea;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  .header {
+    background: var(--navy);
+    padding: 56px 24px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 80px);
+  }
+  .header-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    border: 1px solid rgba(201,147,74,0.4);
+    padding: 5px 16px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .header h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(28px, 6vw, 44px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .header h1 span { color: var(--gold-light); }
+  .header-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.04em;
+    position: relative;
+  }
+  .header-rule {
+    width: 48px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 20px auto 0;
+    position: relative;
+  }
+
+  .intro {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 24px 8px;
+  }
+  .intro-text {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    text-align: center;
+  }
+  .intro-text strong { color: var(--blue); font-weight: 500; }
+
+  .section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 20px 0;
+  }
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .section-label-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--cream-dark), transparent); }
+  .section-label-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text-soft);
+    white-space: nowrap;
+  }
+
+  .timing-grid { display: flex; flex-direction: column; gap: 14px; margin-bottom: 8px; }
+
+  .timing-card {
+    background: var(--white);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--cream-dark);
+    display: flex;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .timing-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(13,27,42,0.08);
+  }
+  .card-accent { width: 5px; flex-shrink: 0; }
+  .card-main { flex: 1; padding: 20px 22px; }
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .card-icon-title { display: flex; align-items: center; gap: 10px; }
+  .card-icon { font-size: 22px; flex-shrink: 0; line-height: 1; }
+  .card-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .card-timing-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .card-desc { font-size: 13.5px; color: var(--text-mid); line-height: 1.8; margin-bottom: 12px; }
+  .card-why {
+    font-size: 12.5px;
+    color: var(--text-soft);
+    line-height: 1.7;
+    padding-left: 12px;
+    border-left: 2px solid var(--cream-dark);
+    margin-bottom: 14px;
+  }
+  .card-script-label {
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.1em;
+    color: var(--text-soft);
+    margin-bottom: 6px;
+  }
+  .card-script {
+    font-size: 13px;
+    line-height: 1.85;
+    padding: 12px 14px;
+    border-radius: 4px;
+    font-style: italic;
+    position: relative;
+  }
+  .card-script::before {
+    content: '"';
+    font-family: 'Noto Serif TC', serif;
+    font-size: 32px;
+    position: absolute;
+    top: 4px; left: 10px;
+    opacity: 0.25;
+    line-height: 1;
+  }
+  .card-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .meta-pill { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+  .best-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    background: #f0c070;
+    color: #5a3a00;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  .theme-green .card-accent { background: var(--green); }
+  .theme-green .card-timing-badge { background: var(--green-light); color: var(--green); }
+  .theme-green .card-script { background: var(--green-light); color: #145538; }
+  .theme-green .meta-pill { background: var(--green-light); color: var(--green); }
+
+  .theme-blue .card-accent { background: var(--blue); }
+  .theme-blue .card-timing-badge { background: #e8f0fb; color: var(--blue); }
+  .theme-blue .card-script { background: #e8f0fb; color: #0d3d73; }
+  .theme-blue .meta-pill { background: #e8f0fb; color: var(--blue); }
+
+  .theme-teal .card-accent { background: var(--teal); }
+  .theme-teal .card-timing-badge { background: var(--teal-light); color: var(--teal); }
+  .theme-teal .card-script { background: var(--teal-light); color: #084a55; }
+  .theme-teal .meta-pill { background: var(--teal-light); color: var(--teal); }
+
+  .theme-purple .card-accent { background: var(--purple); }
+  .theme-purple .card-timing-badge { background: var(--purple-light); color: var(--purple); }
+  .theme-purple .card-script { background: var(--purple-light); color: #2d246b; }
+  .theme-purple .meta-pill { background: var(--purple-light); color: var(--purple); }
+
+  .theme-gold .card-accent { background: var(--gold); }
+  .theme-gold .card-timing-badge { background: var(--amber-light); color: var(--amber); }
+  .theme-gold .card-script { background: var(--amber-light); color: var(--amber); }
+  .theme-gold .meta-pill { background: var(--amber-light); color: var(--amber); }
+
+  .theme-navy .card-accent { background: var(--navy); }
+  .theme-navy .card-timing-badge { background: #e8edf4; color: var(--navy); }
+  .theme-navy .card-script { background: #e8edf4; color: var(--navy); }
+  .theme-navy .meta-pill { background: #e8edf4; color: var(--navy); }
+
+  .avoid-section { max-width: 800px; margin: 36px auto 0; padding: 0 20px; }
+  .avoid-box {
+    background: var(--red-light);
+    border: 1px solid rgba(138,32,32,0.12);
+    border-radius: 4px;
+    padding: 20px 22px;
+  }
+  .avoid-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--red-soft);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .avoid-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+  .avoid-item { display: flex; gap: 8px; align-items: flex-start; }
+  .avoid-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--red-soft); flex-shrink: 0; margin-top: 8px; }
+  .avoid-txt { font-size: 13px; color: #6b1a1a; line-height: 1.65; }
+
+  .principle-section { max-width: 800px; margin: 28px auto 0; padding: 0 20px; }
+  .principle-box {
+    background: var(--navy);
+    border-radius: 4px;
+    padding: 24px 26px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .principle-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+  .principle-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+  .principle-desc { font-size: 13.5px; color: rgba(255,255,255,0.7); line-height: 1.85; }
+  .principle-desc strong { color: rgba(255,255,255,0.95); font-weight: 500; }
+
+  .footer {
+    max-width: 800px;
+    margin: 40px auto 0;
+    padding: 24px 20px 48px;
+    text-align: center;
+    border-top: 1px solid var(--cream-dark);
+  }
+  .footer-text { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--text-soft); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .timing-card { animation: fadeUp 0.5s ease both; }
+  .timing-card:nth-child(1) { animation-delay: 0.05s; }
+  .timing-card:nth-child(2) { animation-delay: 0.1s; }
+  .timing-card:nth-child(3) { animation-delay: 0.15s; }
+  .timing-card:nth-child(4) { animation-delay: 0.2s; }
+  .timing-card:nth-child(5) { animation-delay: 0.25s; }
+  .timing-card:nth-child(6) { animation-delay: 0.3s; }
+
+  @media (max-width: 600px) {
+    .card-top { flex-direction: column; gap: 6px; }
+    .card-timing-badge { align-self: flex-start; }
+    .avoid-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">LONGCHEN INSURANCE · 2026</div>
+  <h1>邀評<span>黃金時機</span>指南</h1>
+  <p class="header-sub">業務員邀請客戶留 Google 評論的最佳時間點</p>
+  <div class="header-rule"></div>
+</div>
+
+<div class="intro">
+  <p class="intro-text">邀評的成功率，<strong>90% 取決於時機</strong>。在對的時刻開口，客戶願意留評的機率是平時的 3–5 倍。<br>以下整理六大黃金時機，每個時機附上原因分析與可直接使用的話術。</p>
+</div>
+
+<div class="section">
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">SIX GOLDEN MOMENTS</div>
+    <div class="section-label-line" style="background: linear-gradient(90deg, transparent, var(--cream-dark));"></div>
+  </div>
+
+  <div class="timing-grid">
+
+    <div class="timing-card theme-green">
+      <div class="card-accent"></div>
+      <div class="card-main">
+        <div class="best-badge">★ 最強時機</div>
+        <div class="card-top">
+          <div class="card-icon-title">
+            <div class="card-icon">✍️</div>
+            <div class="card-title">客戶簽收保單的當下</div>
+          </div>
+          <div class="card-timing-badge">簽收後 0–24 小時</div>
+        </div>
+        <div class="card-desc">剛完成簽約，客戶對整個服務過程記憶最清晰，信任感也達到高點。這是整個服務流程中，客戶主動願意表達感謝的關鍵時刻。</div>
+        <div class="card-why">為什麼有效：超過 2 週後細節記憶開始模糊，評論品質和意願都會明顯下降。當場或當天傳 Line，不要拖。</div>
+        <div class="card-script-label">話術參考</div>
+        <div class="card-script">「OO，謝謝您今天的信任！保單幫您收好了。我有個小請求，您方便的話可以幫我在 Google 留下您的真實感受嗎？如果能提到我的名字就更好了，對我個人口碑很有幫助 🙏（附連結）」</div>
+        <div class="card-meta">
+          <span class="meta-pill">✦ 信任感最高點</span>
+          <span class="meta-pill">當場或當天傳 Line</span>
+          <span class="meta-pill">記憶最鮮明</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timing-card theme-teal">
+      <div class="card-accent"></div>
+      <div class="card-main">
+        <div class="best-badge">★ 最強時機</div>
+        <div class="card-top">
+          <div class="card-icon-title">
+            <div class="card-icon">🎉</div>
+            <div class="card-title">理賠申請順利完成後</div>
+          </div>
+          <div class="card-timing-badge">理賠完成當天</div>
+        </div>
+        <div class="card-desc">理賠是保險最關鍵的「兌現時刻」，順利完成後客戶對你的感謝是真實且深刻的。這時候的一封評論，往往是最有溫度、最有說服力的內容。</div>
+        <div class="card-why">為什麼有效：客戶的信任從「希望你可靠」變成「確認你可靠」，此刻的感謝最發自內心，也最願意公開表達。</div>
+        <div class="card-script-label">話術參考</div>
+        <div class="card-script">「OO 您好！很高興這次的理賠這麼順利完成，希望您一切都好 🙏 如果這次的服務讓您滿意，可以幫我在 Google 留下您的真實感受嗎？您的評論對我幫助很大！（附連結）」</div>
+        <div class="card-meta">
+          <span class="meta-pill">✦ 感謝度最高</span>
+          <span class="meta-pill">評論品質最好</span>
+          <span class="meta-pill">當天聯繫</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timing-card theme-blue">
+      <div class="card-accent"></div>
+      <div class="card-main">
+        <div class="best-badge">★ 最強時機</div>
+        <div class="card-top">
+          <div class="card-icon-title">
+            <div class="card-icon">💬</div>
+            <div class="card-title">客戶主動傳來感謝訊息時</div>
+          </div>
+          <div class="card-timing-badge">收到訊息後立即</div>
+        </div>
+        <div class="card-desc">客戶主動說「謝謝你」「解釋得很清楚」的那一刻，正是最佳切入點。他已經在表達正面情緒，只需要引導他把這個感謝公開出去。</div>
+        <div class="card-why">為什麼有效：客戶主動開口，代表感受已到達臨界點，此時邀評幾乎不需要說服。錯過了就要等下一個時機。</div>
+        <div class="card-script-label">話術參考</div>
+        <div class="card-script">「謝謝您這樣說，聽到真的很開心！如果您願意的話，把這個感受寫在 Google 評論上讓更多人看到，對我幫助很大，也請記得提一下我的名字 😊（附連結）」</div>
+        <div class="card-meta">
+          <span class="meta-pill">✦ 零說服成本</span>
+          <span class="meta-pill">立即把握</span>
+          <span class="meta-pill">錯過不再來</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timing-card theme-purple">
+      <div class="card-accent"></div>
+      <div class="card-main">
+        <div class="card-top">
+          <div class="card-icon-title">
+            <div class="card-icon">🆕</div>
+            <div class="card-title">新業務員第一次成功成交後</div>
+          </div>
+          <div class="card-timing-badge">成交後 1–3 天</div>
+        </div>
+        <div class="card-desc">第一次成交對業務員和客戶都有特殊意義。客戶知道對方是新人卻仍然信任，這份情感比一般成交更深，願意支持的意願也更高。</div>
+        <div class="card-why">為什麼有效：客戶對「幫助一個努力的新人」有天然善意，開口成功率特別高，同時對新業務員來說第一則評論啟動效果最顯著。</div>
+        <div class="card-script-label">話術參考</div>
+        <div class="card-script">「OO，這是我入行以來很重要的一次，謝謝您給我機會！如果您方便的話，幫我在 Google 留下一句話，讓更多人認識我——這對我來說意義很大 🙏（附連結）」</div>
+        <div class="card-meta">
+          <span class="meta-pill">適合新業務員</span>
+          <span class="meta-pill">情感連結強</span>
+          <span class="meta-pill">啟動第一則</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timing-card theme-gold">
+      <div class="card-accent"></div>
+      <div class="card-main">
+        <div class="card-top">
+          <div class="card-icon-title">
+            <div class="card-icon">🔄</div>
+            <div class="card-title">客戶完成加保或續保時</div>
+          </div>
+          <div class="card-timing-badge">完成後當天</div>
+        </div>
+        <div class="card-desc">願意加保或續保，是客戶對你最具體的信任表態。「再次做了決定」這個行為本身就確認了他對服務的滿意，邀評等於請他把這個確認說出來。</div>
+        <div class="card-why">為什麼有效：客戶用行動表態了，阻力極低。不需要太多解釋，直接附上連結，成功率遠高於平時。</div>
+        <div class="card-script-label">話術參考</div>
+        <div class="card-script">「OO，謝謝您這次的加保，您的信任對我來說很重要！如果您滿意我們這幾年的服務，可以在 Google 幫我留下一句話嗎？麻煩提到我的名字，非常感謝 🙏（附連結）」</div>
+        <div class="card-meta">
+          <span class="meta-pill">老客戶適用</span>
+          <span class="meta-pill">信任已累積</span>
+          <span class="meta-pill">自然不尷尬</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timing-card theme-navy">
+      <div class="card-accent"></div>
+      <div class="card-main">
+        <div class="card-top">
+          <div class="card-icon-title">
+            <div class="card-icon">💌</div>
+            <div class="card-title">重新聯繫的老保戶</div>
+          </div>
+          <div class="card-timing-badge">聊幾句之後再開口</div>
+        </div>
+        <div class="card-desc">久未聯繫的老保戶，第一句話不能直接邀評，要先關心問候，讓對方感受到你還記得他。情感重新建立後，邀評才自然，分兩步進行。</div>
+        <div class="card-why">為什麼有效：老保戶有過去的正向記憶，關鍵是「喚醒」這段記憶。不能開口就要東西，要先給再說，等對方回應後再開口。</div>
+        <div class="card-script-label">話術參考（分兩步）</div>
+        <div class="card-script">第一步：「OO 您好！好久不見，希望您和家人都平安健康 😊 最近保單有沒有什麼需要調整的，隨時找我！」<br><br>第二步（對方回應後）：「對了，公司最近在累積 Google 口碑，如果您有空，歡迎留下您對我們的真實印象，對我幫助很大 🙏（附連結）」</div>
+        <div class="card-meta">
+          <span class="meta-pill">老保戶適用</span>
+          <span class="meta-pill">先關心再邀評</span>
+          <span class="meta-pill">分兩步進行</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="avoid-section">
+  <div class="avoid-box">
+    <div class="avoid-title">⚠ 這些時機點不適合開口</div>
+    <div class="avoid-grid">
+      <div class="avoid-item"><div class="avoid-dot"></div><div class="avoid-txt">第一次接觸或陌生拜訪時，還沒建立信任</div></div>
+      <div class="avoid-item"><div class="avoid-dot"></div><div class="avoid-txt">客戶對保單有疑問或不滿意時，勿趁機邀評</div></div>
+      <div class="avoid-item"><div class="avoid-dot"></div><div class="avoid-txt">成交後超過 2 週以上，記憶已模糊效果差</div></div>
+      <div class="avoid-item"><div class="avoid-dot"></div><div class="avoid-txt">在群組廣播邀評，缺乏個人感受度幾乎沒效</div></div>
+      <div class="avoid-item"><div class="avoid-dot"></div><div class="avoid-txt">直接說「幫我留五星」，違反 Google 政策</div></div>
+      <div class="avoid-item"><div class="avoid-dot"></div><div class="avoid-txt">理賠申請進行中，客戶情緒不穩定</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="principle-section">
+  <div class="principle-box">
+    <div class="principle-icon">💡</div>
+    <div>
+      <div class="principle-title">核心原則：情緒高點 × 記憶鮮明 × 信任確認</div>
+      <div class="principle-desc">
+        所有黃金時機都有三個共同特徵：客戶的情緒在<strong>正面高點</strong>、對服務的記憶<strong>還很清晰</strong>、對你的信任已經<strong>被某個行動確認</strong>（簽約、理賠完成、續保）。三者同時存在時，開口的成功率最高。<br><br>
+        一對一私訊的轉化率比群組廣播<strong>高 5 倍以上</strong>。永遠選擇私訊，永遠選擇有名字的個人化訊息，永遠選對時機。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p class="footer-text">LONGCHEN INSURANCE · GOOGLE REVIEW GUIDE · 2026</p>
+</div>
+
+</body>
+</html>
