@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍辰&台灣人｜為什麼你應該邀評？</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --gold: #c9934a;
+    --gold-light: #f0c070;
+    --cream: #f7f2ea;
+    --cream-dark: #ede6d8;
+    --text: #1a1208;
+    --text-mid: #3d3120;
+    --text-soft: #7a6e5e;
+    --white: #ffffff;
+    --green: #1a6b4a;
+    --green-light: #e8f5ed;
+    --blue: #1a5fa8;
+    --blue-light: #e8f0fb;
+    --purple: #4a3a8a;
+    --purple-light: #eeebf8;
+    --teal: #0e6674;
+    --teal-light: #e4f4f7;
+    --amber: #7a4a0a;
+    --amber-light: #fdf0db;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+  }
+
+  .header {
+    background: var(--navy);
+    padding: 60px 24px 52px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(-45deg, transparent, transparent 48px, rgba(255,255,255,0.012) 48px, rgba(255,255,255,0.012) 96px);
+  }
+  .h-eyebrow {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: .16em;
+    color: var(--gold);
+    border: 1px solid rgba(201,147,74,.35);
+    padding: 5px 18px; border-radius: 2px;
+    margin-bottom: 22px; position: relative;
+  }
+  .h-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(26px, 5.5vw, 42px);
+    font-weight: 700; color: var(--white);
+    line-height: 1.25; margin-bottom: 14px;
+    position: relative;
+  }
+  .h-title span { color: var(--gold-light); }
+  .h-sub {
+    font-size: 14px; color: rgba(255,255,255,.5);
+    letter-spacing: .04em; position: relative;
+    line-height: 1.7;
+  }
+  .h-divider {
+    width: 48px; height: 2px; margin: 22px auto 0;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    position: relative;
+  }
+
+  .container { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+
+  .lead { padding: 44px 0 4px; text-align: center; }
+  .lead-text {
+    font-size: 15px; color: var(--text-mid);
+    line-height: 1.95; max-width: 640px; margin: 0 auto;
+  }
+  .lead-text strong { color: var(--blue); font-weight: 500; }
+
+  .sec {
+    display: flex; align-items: center; gap: 12px;
+    padding: 36px 0 16px;
+  }
+  .sec-line { flex: 1; height: 1px; background: var(--cream-dark); }
+  .sec-txt {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: .14em;
+    color: var(--text-soft); white-space: nowrap;
+  }
+
+  .cards { display: flex; flex-direction: column; gap: 14px; }
+
+  .bc {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 4px; overflow: hidden;
+    display: flex;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .bc:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 36px rgba(13,27,42,.08);
+  }
+  .bc-bar { width: 5px; flex-shrink: 0; }
+  .bc-body { flex: 1; padding: 22px 24px; }
+
+  .bc-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: .1em;
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: 2px 10px; border-radius: 2px;
+  }
+  .bc-head {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 12px;
+    margin-bottom: 10px;
+  }
+  .bc-icon-title { display: flex; align-items: center; gap: 10px; }
+  .bc-icon { font-size: 24px; flex-shrink: 0; line-height: 1; }
+  .bc-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 18px; font-weight: 600;
+    color: var(--text); line-height: 1.25;
+  }
+  .bc-badge {
+    font-size: 10px; font-weight: 500;
+    padding: 3px 10px; border-radius: 20px;
+    white-space: nowrap; flex-shrink: 0;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: .06em;
+  }
+  .bc-desc {
+    font-size: 13.5px; color: var(--text-mid);
+    line-height: 1.85; margin-bottom: 14px;
+  }
+  .bc-points { display: flex; flex-direction: column; gap: 7px; margin-bottom: 14px; }
+  .bc-point { display: flex; gap: 10px; align-items: flex-start; }
+  .bp-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+  .bp-txt { font-size: 13px; color: var(--text-mid); line-height: 1.7; }
+  .bc-callout {
+    font-size: 13px; line-height: 1.85;
+    padding: 12px 14px 12px 18px;
+    border-radius: 3px; border-left: 3px solid transparent;
+    font-style: italic; margin-bottom: 12px;
+  }
+  .bc-pills { display: flex; gap: 7px; flex-wrap: wrap; }
+  .bp { font-size: 11px; font-weight: 500; padding: 3px 11px; border-radius: 20px; }
+
+  .t-green .bc-bar { background: var(--green); }
+  .t-green .bc-num { background: var(--green-light); color: var(--green); }
+  .t-green .bc-badge { background: var(--green-light); color: var(--green); }
+  .t-green .bp-dot { background: var(--green); }
+  .t-green .bc-callout { background: var(--green-light); border-color: var(--green); color: #145538; }
+  .t-green .bp { background: var(--green-light); color: var(--green); }
+
+  .t-blue .bc-bar { background: var(--blue); }
+  .t-blue .bc-num { background: var(--blue-light); color: var(--blue); }
+  .t-blue .bc-badge { background: var(--blue-light); color: var(--blue); }
+  .t-blue .bp-dot { background: var(--blue); }
+  .t-blue .bc-callout { background: var(--blue-light); border-color: var(--blue); color: #0d3d73; }
+  .t-blue .bp { background: var(--blue-light); color: var(--blue); }
+
+  .t-purple .bc-bar { background: var(--purple); }
+  .t-purple .bc-num { background: var(--purple-light); color: var(--purple); }
+  .t-purple .bc-badge { background: var(--purple-light); color: var(--purple); }
+  .t-purple .bp-dot { background: var(--purple); }
+  .t-purple .bc-callout { background: var(--purple-light); border-color: var(--purple); color: #2d246b; }
+  .t-purple .bp { background: var(--purple-light); color: var(--purple); }
+
+  .t-teal .bc-bar { background: var(--teal); }
+  .t-teal .bc-num { background: var(--teal-light); color: var(--teal); }
+  .t-teal .bc-badge { background: var(--teal-light); color: var(--teal); }
+  .t-teal .bp-dot { background: var(--teal); }
+  .t-teal .bc-callout { background: var(--teal-light); border-color: var(--teal); color: #084a55; }
+  .t-teal .bp { background: var(--teal-light); color: var(--teal); }
+
+  .t-amber .bc-bar { background: var(--gold); }
+  .t-amber .bc-num { background: var(--amber-light); color: var(--amber); }
+  .t-amber .bc-badge { background: var(--amber-light); color: var(--amber); }
+  .t-amber .bp-dot { background: var(--gold); }
+  .t-amber .bc-callout { background: var(--amber-light); border-color: var(--gold); color: var(--amber); }
+  .t-amber .bp { background: var(--amber-light); color: var(--amber); }
+
+  .t-navy .bc-bar { background: var(--navy); }
+  .t-navy .bc-num { background: #e8edf4; color: var(--navy); }
+  .t-navy .bc-badge { background: #e8edf4; color: var(--navy); }
+  .t-navy .bp-dot { background: var(--navy); }
+  .t-navy .bc-callout { background: #e8edf4; border-color: var(--navy); color: var(--navy); }
+  .t-navy .bp { background: #e8edf4; color: var(--navy); }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px; padding: 36px 0 0;
+  }
+  .sg-box {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 4px; padding: 18px 16px;
+    text-align: center;
+  }
+  .sg-icon { font-size: 28px; margin-bottom: 8px; line-height: 1; }
+  .sg-label {
+    font-size: 11px; color: var(--text-soft);
+    letter-spacing: .06em; margin-bottom: 5px;
+    font-family: 'DM Mono', monospace;
+  }
+  .sg-val {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--text); line-height: 1.1;
+  }
+  .sg-sub { font-size: 11px; color: var(--text-soft); margin-top: 4px; }
+
+  .principle {
+    background: var(--navy); border-radius: 4px;
+    padding: 26px 28px; margin-top: 32px;
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .p-icon { font-size: 30px; flex-shrink: 0; margin-top: 2px; }
+  .p-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px; font-weight: 600;
+    color: var(--gold-light); margin-bottom: 10px;
+  }
+  .p-desc { font-size: 13.5px; color: rgba(255,255,255,.68); line-height: 1.9; }
+  .p-desc strong { color: rgba(255,255,255,.95); font-weight: 500; }
+
+  .footer {
+    padding: 32px 20px 52px; text-align: center;
+    border-top: 1px solid var(--cream-dark); margin-top: 40px;
+  }
+  .footer-txt {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: .08em; color: var(--text-soft);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .bc { animation: fadeUp .5s ease both; }
+  .bc:nth-child(1){animation-delay:.04s}
+  .bc:nth-child(2){animation-delay:.09s}
+  .bc:nth-child(3){animation-delay:.14s}
+  .bc:nth-child(4){animation-delay:.19s}
+  .bc:nth-child(5){animation-delay:.24s}
+  .bc:nth-child(6){animation-delay:.29s}
+
+  @media(max-width:600px){
+    .bc-head{ flex-direction:column; gap:6px; }
+    .bc-badge{ align-self:flex-start; }
+    .summary-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media(max-width:400px){
+    .summary-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="h-eyebrow">LONGCHEN INSURANCE · 2026</div>
+  <h1 class="h-title">為什麼你應該<span>開口邀評</span>？</h1>
+  <p class="h-sub">邀請客戶留 Google 評論<br>不只是幫公司，更是幫你自己</p>
+  <div class="h-divider"></div>
+</div>
+
+<div class="container">
+
+  <div class="lead">
+    <p class="lead-text">很多業務員覺得開口邀評「很奇怪」或「不好意思」。但事實是，<strong>邀評是目前成本最低、回報最高的個人品牌建立方式</strong>。一則評論，可以為你工作好幾年。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-line"></div>
+    <div class="sec-txt">SIX REASONS TO ASK</div>
+    <div class="sec-line" style="background:linear-gradient(90deg,var(--cream-dark),transparent)"></div>
+  </div>
+
+  <div class="cards">
+
+    <div class="bc t-green">
+      <div class="bc-bar"></div>
+      <div class="bc-body">
+        <div class="bc-num">01</div>
+        <div class="bc-head">
+          <div class="bc-icon-title">
+            <div class="bc-icon">🏷️</div>
+            <div class="bc-title">打造你的個人品牌，讓陌生客主動找你</div>
+          </div>
+          <div class="bc-badge">最直接的好處</div>
+        </div>
+        <div class="bc-desc">客戶在 Google 留評時提到你的名字，這則評論就永久掛在網路上。陌生人搜尋保險時，看到你的名字被真實客戶推薦，信任感立刻建立，主動來找你的機率大幅提升。</div>
+        <div class="bc-points">
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">評論是 24 小時不休息的業務員，你睡覺它還在幫你工作</div></div>
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">客戶說的話比你自己說的有效 10 倍，因為第三方推薦沒有利益衝突</div></div>
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">累積越多點名評論，你在 Google 的個人能見度越高</div></div>
+        </div>
+        <div class="bc-callout">「有 5 則客戶點名的業務員，和沒有任何評論的業務員，陌生客會選哪一個？」</div>
+        <div class="bc-pills">
+          <span class="bp">個人品牌</span>
+          <span class="bp">被動引流</span>
+          <span class="bp">長期有效</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bc t-blue">
+      <div class="bc-bar"></div>
+      <div class="bc-body">
+        <div class="bc-num">02</div>
+        <div class="bc-head">
+          <div class="bc-icon-title">
+            <div class="bc-icon">📣</div>
+            <div class="bc-title">讓你的好服務被更多人看見</div>
+          </div>
+          <div class="bc-badge">口碑可視化</div>
+        </div>
+        <div class="bc-desc">你每天努力服務客戶，但這些努力只有客戶自己知道。一則評論，把你的服務品質從「只有當事人知道」變成「所有人都看得見」，讓你的每一份付出都有被記錄的機會。</div>
+        <div class="bc-points">
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">好服務不留下任何痕跡，等於白做；評論讓每一次付出都有憑據</div></div>
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">有具體評論支撐，向新客戶介紹自己時更有說服力</div></div>
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">評論內容可以截圖，用在 Line 狀態或朋友圈，自然帶來詢問</div></div>
+        </div>
+        <div class="bc-callout">「你服務的好，只有客戶知道，不夠。要讓還不認識你的人也知道。」</div>
+        <div class="bc-pills">
+          <span class="bp">服務可視化</span>
+          <span class="bp">說服力提升</span>
+          <span class="bp">口碑留存</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bc t-purple">
+      <div class="bc-bar"></div>
+      <div class="bc-body">
+        <div class="bc-num">03</div>
+        <div class="bc-head">
+          <div class="bc-icon-title">
+            <div class="bc-icon">🤝</div>
+            <div class="bc-title">加深與客戶的關係，降低流失率</div>
+          </div>
+          <div class="bc-badge">關係深化</div>
+        </div>
+        <div class="bc-desc">請客戶幫你留評這個動作，本身就是一次深化關係的機會。客戶願意幫你做這件事，代表他對你的信任已經達到願意公開背書的程度；而公開背書這個行為，又會讓他更加認同自己的選擇。</div>
+        <div class="bc-points">
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">心理學上，人一旦公開表態支持某人，自己也會更加認同這個決定</div></div>
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">幫你留評的客戶，比沒有留評的客戶流失率更低</div></div>
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">邀評的過程讓客戶感受到你在乎他的意見，關係更對等</div></div>
+        </div>
+        <div class="bc-callout">「幫你寫評論的客戶，等於公開站台支持你。這樣的客戶，更不容易被競業挖走。」</div>
+        <div class="bc-pills">
+          <span class="bp">降低流失率</span>
+          <span class="bp">強化忠誠度</span>
+          <span class="bp">關係更穩固</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bc t-teal">
+      <div class="bc-bar"></div>
+      <div class="bc-body">
+        <div class="bc-num">04</div>
+        <div class="bc-head">
+          <div class="bc-icon-title">
+            <div class="bc-icon">🌐</div>
+            <div class="bc-title">提升公司搜尋排名，公司好你才好</div>
+          </div>
+          <div class="bc-badge">間接效益</div>
+        </div>
+        <div class="bc-desc">Google 評論數量和品質直接影響公司在地圖搜尋中的排名。排名越前面，潛在客戶主動找到龍辰的機率越高，進而增加主動詢問的客戶數量，最終轉化為你的業績機會。</div>
+        <div class="bc-points">
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">公司評論數越多，Google 搜尋「台南保險代理人」時越靠前</div></div>
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">陌生客主動上門的詢問增加，業務員不需要自己去找客戶</div></div>
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">公司口碑好，業務員招攬新人的成功率也隨之提升</div></div>
+        </div>
+        <div class="bc-callout">「你每邀到一則評論，不只是幫公司，是在為整個團隊創造更多客源。」</div>
+        <div class="bc-pills">
+          <span class="bp">搜尋排名提升</span>
+          <span class="bp">陌生客增加</span>
+          <span class="bp">招募更容易</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bc t-amber">
+      <div class="bc-bar"></div>
+      <div class="bc-body">
+        <div class="bc-num">05</div>
+        <div class="bc-head">
+          <div class="bc-icon-title">
+            <div class="bc-icon">💪</div>
+            <div class="bc-title">成本幾乎是零，但回報極高</div>
+          </div>
+          <div class="bc-badge">投報率最高的動作</div>
+        </div>
+        <div class="bc-desc">邀評只需要一句話、一個連結，花不到 2 分鐘。但這則評論可能在 Google 上存在好幾年，持續幫你引流、建立信任、帶來詢問。沒有任何業務動作的投報率比這個更高。</div>
+        <div class="bc-points">
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">一次邀評：花 2 分鐘，效益持續 2–5 年</div></div>
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">相比買廣告或舉辦活動，邀評的成本是零</div></div>
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">累積 10 則點名評論的業務員，等於擁有一個 24 小時運作的個人品牌頁面</div></div>
+        </div>
+        <div class="bc-callout">「花 2 分鐘的事，卻能為你帶來好幾年的效益。還有什麼比這個 CP 值更高？」</div>
+        <div class="bc-pills">
+          <span class="bp">零成本</span>
+          <span class="bp">長期效益</span>
+          <span class="bp">CP 值最高</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bc t-navy">
+      <div class="bc-bar"></div>
+      <div class="bc-body">
+        <div class="bc-num">06</div>
+        <div class="bc-head">
+          <div class="bc-icon-title">
+            <div class="bc-icon">🏆</div>
+            <div class="bc-title">在同事之間建立口碑領先地位</div>
+          </div>
+          <div class="bc-badge">內部競爭力</div>
+        </div>
+        <div class="bc-desc">當公司在 Google 上有 100 則評論，有些業務員的名字被客戶點名 5 次、10 次，有些業務員一次都沒有。哪一種業務員給客戶的印象更深？哪一種業務員更容易被新客戶主動選擇？</div>
+        <div class="bc-points">
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">點名次數越多，在 Google 搜尋結果裡個人能見度越高</div></div>
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">早行動的人佔先機，等別人都開始了你才邀，效果會遞減</div></div>
+          <div class="bc-point"><div class="bp-dot"></div><div class="bp-txt">公司品牌卡、口碑大使稱號，都優先屬於主動邀評的業務員</div></div>
+        </div>
+        <div class="bc-callout">「現在開始邀，你是第一批建立個人評論口碑的業務員。等大家都在做，優勢就變小了。」</div>
+        <div class="bc-pills">
+          <span class="bp">先行者優勢</span>
+          <span class="bp">內部能見度</span>
+          <span class="bp">個人品牌卡資格</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sec">
+    <div class="sec-line"></div>
+    <div class="sec-txt">QUICK SUMMARY</div>
+    <div class="sec-line" style="background:linear-gradient(90deg,var(--cream-dark),transparent)"></div>
+  </div>
+
+  <div class="summary-grid">
+    <div class="sg-box">
+      <div class="sg-icon">⏱️</div>
+      <div class="sg-label">執行時間</div>
+      <div class="sg-val">2 分鐘</div>
+      <div class="sg-sub">一句話 + 一個連結</div>
+    </div>
+    <div class="sg-box">
+      <div class="sg-icon">📅</div>
+      <div class="sg-label">效益持續</div>
+      <div class="sg-val">2–5 年</div>
+      <div class="sg-sub">評論永久留在 Google</div>
+    </div>
+    <div class="sg-box">
+      <div class="sg-icon">💰</div>
+      <div class="sg-label">執行成本</div>
+      <div class="sg-val">零元</div>
+      <div class="sg-sub">不需要任何費用</div>
+    </div>
+    <div class="sg-box">
+      <div class="sg-icon">📈</div>
+      <div class="sg-label">私訊轉化率</div>
+      <div class="sg-val">5 倍</div>
+      <div class="sg-sub">vs 群組廣播</div>
+    </div>
+    <div class="sg-box">
+      <div class="sg-icon">🌟</div>
+      <div class="sg-label">最佳時機</div>
+      <div class="sg-val">簽收當下</div>
+      <div class="sg-sub">記憶最鮮明</div>
+    </div>
+    <div class="sg-box">
+      <div class="sg-icon">🏷️</div>
+      <div class="sg-label">加分動作</div>
+      <div class="sg-val">T-UP</div>
+      <div class="sg-sub">請客戶提你名字</div>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="p-icon">💡</div>
+    <div>
+      <div class="p-title">記住這一句話</div>
+      <div class="p-desc">
+        邀評不是在「麻煩客戶」，而是給他一個<strong>公開表達感謝的出口</strong>。客戶願意幫你留評，代表他對你的服務已經滿意到願意背書。<strong>開口是尊重這份信任，不開口才是浪費了它。</strong><br><br>
+        每一則點名評論，都是一個 24 小時幫你工作的無形業務員。你的目標不是「邀到評論」，而是<strong>建立一支永不休息的個人口碑軍隊</strong>。
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p class="footer-txt">LONGCHEN INSURANCE · WHY YOU SHOULD ASK FOR REVIEWS · 2026</p>
+</div>
+
+</body>
+</html>
